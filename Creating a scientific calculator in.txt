@@ -1,0 +1,99 @@
+Creating a scientific calculator in Linux can be accomplished using various programming languages. Below is a simple example using Python, which is widely used for such tasks. Make sure you have Python installed on your Linux system.
+
+Step 1: Install Python (if not already installed)
+You can check if Python is installed by running:
+
+bash
+Copy code
+python3 --version
+If it's not installed, you can install it using:
+
+bash
+Copy code
+sudo apt update
+sudo apt install python3
+Step 2: Create the Calculator Script
+Open a terminal.
+Create a new Python file:
+bash
+Copy code
+nano scientific_calculator.py
+Paste the following code into the file:
+python
+Copy code
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
+
+def power(x, y):
+    return math.pow(x, y)
+
+def square_root(x):
+    return math.sqrt(x)
+
+def main():
+    print("Welcome to the Scientific Calculator")
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Power")
+    print("6. Square Root")
+    
+    while True:
+        choice = input("Enter choice (1/2/3/4/5/6): ")
+        
+        if choice in ['1', '2', '3', '4', '5', '6']:
+            if choice in ['1', '2', '3', '4', '5']:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+            
+            if choice == '1':
+                print(f"{num1} + {num2} = {add(num1, num2)}")
+            elif choice == '2':
+                print(f"{num1} - {num2} = {subtract(num1, num2)}")
+            elif choice == '3':
+                print(f"{num1} * {num2} = {multiply(num1, num2)}")
+            elif choice == '4':
+                print(f"{num1} / {num2} = {divide(num1, num2)}")
+            elif choice == '5':
+                print(f"{num1} ^ {num2} = {power(num1, num2)}")
+            elif choice == '6':
+                num1 = float(input("Enter number: "))
+                print(f"√{num1} = {square_root(num1)}")
+        else:
+            print("Invalid Input")
+
+        next_calculation = input("Do you want to perform another calculation? (yes/no): ")
+        if next_calculation.lower() != 'yes':
+            break
+
+if __name__ == "__main__":
+    main()
+Step 3: Save and Exit
+Press CTRL + X, then Y, and hit Enter to save and exit.
+
+Step 4: Run the Calculator
+Now you can run your scientific calculator with:
+
+bash
+Copy code
+python3 scientific_calculator.py
+Features of the Calculator
+Basic operations: Addition, subtraction, multiplication, and division.
+Power function for exponentiation.
+Square root function.
+Feel free to expand the functionality by adding more mathematical functions or enhancing the user interface!
